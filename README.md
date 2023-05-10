@@ -1,5 +1,5 @@
 <h1>AirBnB clone - The console</h1>
-<p>We write a command interpreter to manage our AirBnB objects.
+<p>We wrote a command interpreter to manage our AirBnB objects.
 This is the first step towards building our first full web application: the AirBnB clone. This first step is very important because we use what we build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…</p>
 
 <p>Each task is linked and will help us:</p>
