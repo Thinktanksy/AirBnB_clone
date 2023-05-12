@@ -1,19 +1,18 @@
 #!/usr/bin/python3
-"""Module containing FileStorage class"""
-
-import json
+"""Module for FileStorage class."""
 import datetime
+import json
 import os
 
 
 class FileStorage:
 
-    """data storage and retrieval class"""
+    """Class for storing and retrieving data"""
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """provies dictionary __objects"""
+        """returns the dictionary __objects"""
         return FileStorage.__objects
 
     def new(self, obj):
@@ -28,27 +27,26 @@ class FileStorage:
             json.dump(d, f)
 
     def classes(self):
-        """Retrieves a dictionary containing valid classes and their corresponding references"""
+        """Returns a dictionary of valid classes and their references"""
         from models.base_model import BaseModel
         from models.user import User
         from models.state import State
-	from models.amenity import Amenity
         from models.city import City
-        from models.review import Review
+        from models.amenity import Amenity
         from models.place import Place
+        from models.review import Review
 
         classes = {"BaseModel": BaseModel,
                    "User": User,
                    "State": State,
-		   "Amenity": Amenity,
-                   "City": City,,
-                   "Review": Review,
+                   "City": City,
+                   "Amenity": Amenity,
                    "Place": Place,
-
+                   "Review": Review}
         return classes
 
     def reload(self):
-        """Reloads objects stored"""
+        """Reloads the stored objects"""
         if not os.path.isfile(FileStorage.__file_path):
             return
         with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
@@ -59,7 +57,7 @@ class FileStorage:
             FileStorage.__objects = obj_dict
 
     def attributes(self):
-        """Retrieves the valid attributes and their associated types for the given classname"""
+        """Returns the valid attributes and their types for classname"""
         attributes = {
             "BaseModel":
                      {"id": str,
@@ -72,16 +70,11 @@ class FileStorage:
                       "last_name": str},
             "State":
                      {"name": str},
-
-	    "Amenity":
-                     {"name": str},
             "City":
                      {"state_id": str,
                       "name": str},
-            "Review":
-            {"place_id": str,
-                         "user_id": str,
-                         "text": str}
+            "Amenity":
+                     {"name": str},
             "Place":
                      {"city_id": str,
                       "user_id": str,
@@ -94,5 +87,9 @@ class FileStorage:
                       "latitude": float,
                       "longitude": float,
                       "amenity_ids": list},
+            "Review":
+            {"place_id": str,
+                         "user_id": str,
+                         "text": str}
         }
         return attributes
