@@ -1,12 +1,22 @@
-body {
+* {
     margin: 0;
     padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100vh;
     color: #484848;
     font-size: 14px;
-    font-family: Circular, "Helvetica Neue", Arial, sans-serif;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-div.container {
-    max-width: 1000px;
+
+.container {
+    
     margin: 30px auto;
-    /* text-align: center; */
+    max-width: 1000px;
+    align-self: center;
+    width: 100%;
 }
